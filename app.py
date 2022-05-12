@@ -1,4 +1,4 @@
-from flask import flask
+from flask import Flask
 from flask import request
 import pandas as pd
 import datetime as dt
@@ -10,7 +10,7 @@ series = pd.Series(index=range(data.s.min(), dt.now().year))
 for m in data.index:
     series.loc[data.loc[m].s:data.loc[m].e] = m
 
-app = flask.Flask(__name__)
+app = Flask.Flask(__name__)
 
 @app.route('/',method=['GET'])
 def home():
